@@ -1,0 +1,9 @@
+{  
+  "assets":{
+  },
+  "images": {
+    "icon-small": "http://10.188.28.11/images/hpe-icon.png?raw=true",
+    "icon-medium": "http://10.188.28.11/images/hpesm_logo.png?raw=true",
+    "icon-large": "http://10.188.28.11/images/hpe_logo.png?raw=true"
+  }
+}

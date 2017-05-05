@@ -1,0 +1,16 @@
+{  
+   "description":"HPE OneView universe app integrates with HPE Synergy to add/remove Synergy nodes into an existing DC/OS cluster",
+   "framework":false,
+   "maintainer":"ComposableAPIsupport@hpe.com",
+   "minDcosReleaseVersion":"1.9",
+   "name":"hpe-oneview",
+   "packagingVersion":"3.0",
+   "preInstallNotes":"This DC/OS Service is currently in preview.",
+   "postInstallNotes":"DC/OS hpe-OneView is installed!\n\n\tDocumentation: https://github.com/HewlettPackard/mesosphere-universe-oneview\n\nIssues: https://github.com/HewlettPackard/mesosphere-universe-oneview/issues",
+   "postUninstallNotes":"DC/OS hpe-oneview has been uninstalled.",
+   "tags":[  
+      "reference",
+      "hpe-oneview"
+   ],
+   "version":"3.0"
+}

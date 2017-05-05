@@ -1,0 +1,100 @@
+{  
+   "type":"object",
+   "properties":{  
+      "service":{  
+         "type":"object",
+         "description":"DC/OS service configuration properties",
+         "properties":{  
+            "name":{  
+               "description":"The name of the service instance",
+               "type":"string",
+               "default":"hpe-oneview"
+            },
+            "proxy":{  
+               "description":"The http proxy used to download artifacts.",
+               "type":"string",
+               "default":"http://proxy.houston.hpecorp.net:8080/"
+            },
+            "cpus":{  
+               "description":"CPU requirements",
+               "type":"number",
+               "default":2
+            },
+            "mem":{  
+               "description":"Mem requirements (in MB)",
+               "type":"integer",
+               "default":512
+            },
+            "disk":{  
+               "description":"Disk requirements (in MB)",
+               "type":"integer",
+               "default":25
+            }
+         },
+         "required":[  
+            "name",
+            "cpus",
+            "mem",
+            "disk"
+         ]
+      },
+      "oneview":{  
+         "description":"HPE OneView configuration properties",
+         "type":"object",
+         "properties":{  
+            "appliance-ip":{  
+               "description":"OneView appliance address",
+               "type":"string",
+               "default":"10.188.29.1"
+            },
+            "username":{  
+               "description":"OneView username ",
+               "type":"string",
+               "default":"Administrator"
+            },
+            "password":{  
+               "description":"OneView password",
+               "type":"string",
+               "default":"P@ssw0rd1"
+            },
+            "api-version":{  
+               "description":"OneView REST API version",
+               "type":"integer",
+               "default":300
+            },
+            "server-profile-template":{  
+               "description":"OneView Server Profile Template (SPT) which contains best practise DC/OS configurations",
+               "type":"string",
+               "default":"SPT_DCOS"
+            },
+            "os-deployment-plan":{  
+               "description":"ImageStreamer OS Deployment Plan which contains the DC/OS golden image",
+               "type":"string",
+               "default":"RHEL72_DCOS"
+            }
+         },
+         "required":[  
+            "appliance-ip",
+            "username",
+            "password",
+            "api-version",
+            "server-profile-template",
+            "os-deployment-plan"
+         ]
+      },
+	  "github":{  
+         "description":"HewlettPackard artifact repository",
+         "type":"object",
+         "properties":{  
+            "universe":{  
+               "description":"repository url for mesosphere-universe-oneview",
+               "type":"string",
+               "default":"https://github.com/HewlettPackard/mesosphere-universe-oneview"
+            }
+         },
+		 "required":[  
+            "universe"
+         ]
+	 }
+   }
+}

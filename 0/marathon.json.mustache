@@ -1,0 +1,49 @@
+{
+  "id": "{{service.name}}",
+  "cmd": "pip --proxy {{service.proxy}} install hpOneView\npip --proxy {{service.proxy}} install virtualenv\npip --proxy {{service.proxy}} install flask\ngit config --global http.proxy {{service.proxy}}\ngit config --global https.proxy {{service.proxy}}\ngit clone {{github.universe}}\ncd ov2mesos\nif [ -f ./service.py ]; \nthen \npython ./service.py\nelse \necho \"Error: Service not available\" \nfi\n",
+  "instances": 1,
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "disk": {{service.disk}},  
+  "backoffSeconds": 1,
+  "backoffFactor": 1.15,
+  "maxLaunchDelaySeconds": 3600,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "python",
+      "privileged": false,
+      "forcePullImage": false
+    }
+  },
+  "labels":{
+    "DCOS_SERVICE_NAME": "{{service.name}}",
+    "DCOS_SERVICE_PORT_INDEX": "5000",
+    "DCOS_SERVICE_SCHEME": "http"
+  },
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
+  },
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 300,
+    "expungeAfterSeconds": 600
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "portDefinitions": [
+    {
+      "port": 10001,
+      "protocol": "tcp",
+      "name": "default"
+    }
+  ],
+  "requirePorts": true,
+  "env": {
+    "ONEVIEWSDK_IP": "{{oneview.appliance-ip}}",
+    "ONEVIEWSDK_USERNAME": "{{oneview.username}}",
+    "ONEVIEWSDK_PASSWORD": "{{oneview.password}}",
+    "ONEVIEWSDK_API_VERSION": "{{oneview.api-version}}",
+    "ONEVIEW_UNIVERSE_SPT": "{{oneview.server-profile-template}}",
+    "ONEVIEW_UNIVERSE_OSDP": "{{oneview.os-deployment-plan}}"
+  }
+}
