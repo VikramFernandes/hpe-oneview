@@ -10,6 +10,7 @@
   "maxLaunchDelaySeconds": 3600,
   "container": {
     "type": "DOCKER",
+    "network": "HOST",
     "docker": {
       "image": "python",
       "privileged": false,
@@ -18,7 +19,7 @@
   },
   "labels":{
     "DCOS_SERVICE_NAME": "{{service.name}}",
-    "DCOS_SERVICE_PORT_INDEX": "5000",
+    "DCOS_SERVICE_PORT_INDEX": "0",
     "DCOS_SERVICE_SCHEME": "http"
   },
   "upgradeStrategy": {
@@ -30,9 +31,20 @@
     "expungeAfterSeconds": 600
   },
   "killSelection": "YOUNGEST_FIRST",
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/",
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 60,
+      "portIndex": 0,
+      "timeoutSeconds": 30,
+      "maxConsecutiveFailures": 3
+    }
+   ],
   "portDefinitions": [
     {
-      "port": 10001,
+      "port": 5000,
       "protocol": "tcp",
       "name": "default"
     }

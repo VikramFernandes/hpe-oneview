@@ -45,7 +45,7 @@
             "appliance-ip":{  
                "description":"OneView appliance address",
                "type":"string",
-               "default":"10.188.29.1"
+               "default":"10.188.29.2"
             },
             "username":{  
                "description":"OneView username ",
@@ -65,12 +65,12 @@
             "server-profile-template":{  
                "description":"OneView Server Profile Template (SPT) which contains best practise DC/OS configurations",
                "type":"string",
-               "default":"SPT_DCOS"
+               "default":"DCOS-SERVER-TEMPLATE"
             },
             "os-deployment-plan":{  
                "description":"ImageStreamer OS Deployment Plan which contains the DC/OS golden image",
                "type":"string",
-               "default":"RHEL72_DCOS"
+               "default":"DCOS-OS-DEPLOY-PLAN"
             }
          },
          "required":[  
