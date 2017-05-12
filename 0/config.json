@@ -18,7 +18,7 @@
             "cpus":{  
                "description":"CPU requirements",
                "type":"number",
-               "default":2
+               "default":1
             },
             "mem":{  
                "description":"Mem requirements (in MB)",
@@ -65,12 +65,12 @@
             "server-profile-template":{  
                "description":"OneView Server Profile Template (SPT) which contains best practise DC/OS configurations",
                "type":"string",
-               "default":"DCOS-SERVER-TEMPLATE"
+               "default":"dcos-server"
             },
             "os-deployment-plan":{  
                "description":"ImageStreamer OS Deployment Plan which contains the DC/OS golden image",
                "type":"string",
-               "default":"DCOS-OS-DEPLOY-PLAN"
+               "default":"dcos-server-osdp"
             }
          },
          "required":[  

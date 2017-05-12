@@ -5,5 +5,16 @@
     "icon-small": "http://10.188.28.11/images/hpe-icon.png?raw=true",
     "icon-medium": "http://10.188.28.11/images/hpesm_logo.png?raw=true",
     "icon-large": "http://10.188.28.11/images/hpe_logo.png?raw=true"
+  },
+  "cli":{
+    "binaries":{      
+      "linux":{
+        "x86-64":{
+          "contentHash":[ { "algo":"sha256", "value":"0dca2bf99887a37d3f5eaa108d419c02719b341fcb0fc1c9dfa6601f62260a64" } ],
+          "kind":"executable",
+          "url":"http://10.188.28.11/binary/dcos-oneview"
+        }
+      }
+    }
   }
 }
